@@ -3,10 +3,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -22,14 +24,18 @@ public class WorkoutsPanel extends JTabbedPane {
   private static final long serialVersionUID = 8172229761286610310L; // What is this thing?
   private final Workouts workouts;
   ArrayList<WorkoutPanel> PanelList = new ArrayList<WorkoutPanel>();
-
+  private MainWindow mainFrame;
+  
+  public void setMainWindow(MainWindow mainFrame) {
+  	 this.mainFrame = mainFrame;
+   }
 
   private class WorkoutPanel extends JPanel {
 
     private static final long serialVersionUID = 7815971630539125935L; // What is serialization?
     private final Workouts workouts;
-    private Workouts.Muscle muscle;
-    private Workouts.Equipment equipment;
+    private Config.Muscle muscle;
+    private Config.Equipment equipment;
     private int workoutIndex;
     private int selectedName;
     private int selectedEquipment;
@@ -39,8 +45,10 @@ public class WorkoutsPanel extends JTabbedPane {
     JLabel lblSecondaryMuscle;
     JTextArea taDescription;
     JTextArea taNotes;
+    
+    
         
-    WorkoutPanel(Workouts.Muscle muscle, ArrayList<Workouts.Muscle> muscles, Workouts workouts)
+    WorkoutPanel(Config.Muscle muscle, ArrayList<Config.Muscle> muscles, Workouts workouts)
     {
       this.workouts = workouts.getWorkoutsByMuscle(muscle, false);
       this.muscle = muscle;
@@ -57,8 +65,11 @@ public class WorkoutsPanel extends JTabbedPane {
       GridBagLayout gridBagLayout = new GridBagLayout();
       gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0};
       gridBagLayout.columnWeights = new double[]{1.0};
+      JButton backButton = new JButton("Back");
+      
+      
       setLayout(gridBagLayout);
-              
+      
       ArrayList<String> tempNames = this.workouts.getWorkoutsByEquipment(equipment).getNames();
       String[] names = new String[tempNames.size()];
       names = tempNames.toArray(names);
@@ -72,6 +83,12 @@ public class WorkoutsPanel extends JTabbedPane {
       gbc_cboNames.insets = new Insets(0, 5, 5, 0);
       gbc_cboNames.gridx = 0;
       gbc_cboNames.gridy = 0;
+      add(backButton, gbc_cboNames);
+      backButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					mainFrame.backToHomeScreen();
+				}
+			});
       add(cboNames, gbc_cboNames);
       cboNames.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
@@ -153,12 +170,13 @@ public class WorkoutsPanel extends JTabbedPane {
       repaint();
     }
   }
+  
 
-  WorkoutsPanel(ArrayList<Workouts.Muscle> muscles, Workouts workouts)
+  WorkoutsPanel(ArrayList<Config.Muscle> muscles, Workouts workouts)
   {
     this.workouts = workouts;
     
-    for(Workouts.Muscle m : muscles) {
+    for(Config.Muscle m : muscles) {
       WorkoutPanel wp = new WorkoutPanel(m, muscles, workouts);
       this.add(wp, m.toString());
     }

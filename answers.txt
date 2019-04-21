@@ -1,0 +1,10 @@
+We choose ArrayList over Vector because...? ArrayList is thread safe while Vector is not. ArrayList is usually the standard to choice for java
+
+// How do we get the name of an enumeration value?
+//ex: equipment.name();
+
+    // What is a try/catch block and why do we need one?
+	  //Try/catch block will catch an exception if there is one. An exception will be thrown if the input file is not found. That's why we need a try/catch block. 
+
+    // What is an exception?
+	  //It's a way of catching errors without crashing the program. For example, if you try to divide by zero an exception with be thrown. 
