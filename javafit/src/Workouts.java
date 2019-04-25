@@ -23,7 +23,7 @@ public class Workouts {
       if(w.hasPrimaryMuscle(m)) {
         retval.addWorkout(w);
       }
-      else if (includeSecondary && w.hasSecondaryMuscle(m)) { // Why did I put the includeSecondary first?
+      else if (includeSecondary && w.hasSecondaryMuscle(m)) { // Why did I put the includeSecondary first?We don't want to call the function hasSecondaryMuscle if we don't have too. In an and statement, the output will short curcuit to false if the first parameter is false. So, we already have the value of includeSecondary. If that's false, the and operator will short circuit to false, and the function hasSecondardMuscle will never be called. This saves time in the execution of our code. 
         retval.addWorkout(w);
       }
     }

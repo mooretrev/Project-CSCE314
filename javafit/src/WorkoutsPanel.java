@@ -21,7 +21,8 @@ import javax.swing.SwingConstants;
 
 public class WorkoutsPanel extends JTabbedPane {
 
-  private static final long serialVersionUID = 8172229761286610310L; // What is this thing?
+  private static final long serialVersionUID = 8172229761286610310L; // What is this thing? Used for version control, and used during serialization and deserialization to ensure that we don't lose track of the object.
+
   private final Workouts workouts;
   ArrayList<WorkoutPanel> PanelList = new ArrayList<WorkoutPanel>();
   private MainWindow mainFrame;
@@ -32,7 +33,7 @@ public class WorkoutsPanel extends JTabbedPane {
 
   private class WorkoutPanel extends JPanel {
 
-    private static final long serialVersionUID = 7815971630539125935L; // What is serialization?
+    private static final long serialVersionUID = 7815971630539125935L; // What is serialization? A process used to change an object into a stream of bytes, so the object can be store on a disk or sent over the network. 
     private final Workouts workouts;
     private Config.Muscle muscle;
     private Config.Equipment equipment;

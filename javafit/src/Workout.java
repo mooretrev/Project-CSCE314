@@ -50,7 +50,7 @@ public class Workout {
   public String getName() {
     return name;
   }
-  public String getEquipment() { // How do we get the name of an enumeration value?
+  public String getEquipment() { // How do we get the name of an enumeration value? 
     return equipment.name();
   }
   public String getPrimaryMuscle() { // How do we get the name of an enumeration value?

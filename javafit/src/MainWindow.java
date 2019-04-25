@@ -4,12 +4,15 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.awt.event.*;
@@ -40,8 +43,22 @@ public class MainWindow implements ActionListener {
     mainFrame.setSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT); 
     mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
+    int width = 48;
+    int height = 48;
+    int type = BufferedImage.TYPE_INT_ARGB;
+    BufferedImage image = new BufferedImage(width, height, type);
+    Graphics2D g2d = image.createGraphics();
+    g2d.setColor(Color.BLUE);
+    g2d.fillRect(0, 0, width, height);
+    g2d.dispose();
+    
+    mainFrame.setIconImage(image);
+   
     configButtonandPanel();
     launchHomeScreen();
+    
+    
   }
   
   private void configButtonandPanel() {

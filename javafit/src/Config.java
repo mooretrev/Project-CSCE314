@@ -6,7 +6,7 @@ public class Config {
   public final static String WORKOUTFILE = "workouts.csv";
   public final static String WORKOUTFORMATFILE = "workoutformats.csv";
   public enum MuscleGroup {UPPERBODY, LOWERBODY, WHOLEBODY}
-  public enum Muscle {ABS, BACK, BICEPS, CHEST, FOREARM, GLUTES, LOWERLEG, SHOULDER, TRICEPS, UPPERLEG, NONE} // Why didn't I have to declare this static?
+  public enum Muscle {ABS, BACK, BICEPS, CHEST, FOREARM, GLUTES, LOWERLEG, SHOULDER, TRICEPS, UPPERLEG, NONE} // Why didn't I have to declare this static? Ans: All enum are implicitly static
   public enum Equipment {BARBELL, BODYWEIGHT, DUMBBELL, CABLE, HAMMERSTRENGTH}
   public final static int SCREEN_WIDTH = 600;
   public final static int SCREEN_HEIGHT = 400;

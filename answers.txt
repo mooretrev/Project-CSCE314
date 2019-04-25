@@ -8,3 +8,13 @@ We choose ArrayList over Vector because...? ArrayList is thread safe while Vecto
 
     // What is an exception?
 	  //It's a way of catching errors without crashing the program. For example, if you try to divide by zero an exception with be thrown. 
+
+// Why didn't I have to declare this static? 
+//Ans: All enum are implicitly static
+
+// Why did I put the includeSecondary first?
+// We don't want to call the function hasSecondaryMuscle if we don't have too. In an and statement, the output will short curcuit to false if the first parameter is false. So, we already have the value of includeSecondary. If that's false, the and operator will short circuit to false, and the function hasSecondardMuscle will never be called. This saves time in the execution of our code. 
+
+// What is this thing? Used for version control, and used during serialization and deserialization to ensure that we don't lose track of the object.
+
+// What is serialization? A process used to change an object into a stream of bytes, so the object can be store on a disk or sent over the network. 
