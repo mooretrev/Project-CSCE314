@@ -47,18 +47,9 @@ public class MainWindow implements ActionListener {
     int width = 48;
     int height = 48;
     int type = BufferedImage.TYPE_INT_ARGB;
-    BufferedImage image = new BufferedImage(width, height, type);
-    Graphics2D g2d = image.createGraphics();
-    g2d.setColor(Color.BLUE);
-    g2d.fillRect(0, 0, width, height);
-    g2d.dispose();
     
-    mainFrame.setIconImage(image);
-   
     configButtonandPanel();
-    launchHomeScreen();
-    
-    
+    launchHomeScreen();    
   }
   
   private void configButtonandPanel() {
