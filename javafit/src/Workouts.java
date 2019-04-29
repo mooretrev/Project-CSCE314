@@ -1,4 +1,6 @@
 import java.util.ArrayList; // We choose ArrayList over Vector because...?
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 
 public class Workouts {
@@ -73,9 +75,15 @@ public class Workouts {
   
   public final ArrayList<String> getEquipment(){
   	ArrayList<String> retval = new ArrayList<String>();
+    
+
     for(Workout w : workoutList) {
-      retval.add(w.getEquipment());
+    	retval.add(w.getEquipment());
     }
+    
+    Set<String> removeDups = new LinkedHashSet<String>(retval);
+    retval.clear();
+    retval.addAll(removeDups);
     return retval;
   }
  
